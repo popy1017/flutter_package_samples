@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'album.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -22,6 +24,7 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: Album(),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add_photo_alternate),
         onPressed: () {},
