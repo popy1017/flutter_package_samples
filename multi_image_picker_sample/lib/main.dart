@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:multi_image_picker_sample/album_model.dart';
+import 'package:provider/provider.dart';
 
 import 'album.dart';
 
@@ -15,7 +17,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(),
+      home: ChangeNotifierProvider<AlbumModel>(
+          create: (_) => AlbumModel(), child: MyHomePage()),
     );
   }
 }
@@ -27,7 +30,9 @@ class MyHomePage extends StatelessWidget {
       body: Album(),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add_photo_alternate),
-        onPressed: () {},
+        onPressed: () {
+          context.read<AlbumModel>().loadAssets();
+        },
       ),
     );
   }
